@@ -1,0 +1,23 @@
+<% include partials/header %>
+<div class="ui divided items">
+<% blogs.forEach(function(blog){ %>
+    <div class="ui main text container segment raised" style="background: url('https://www.toptal.com/designers/subtlepatterns/patterns/sos.png');">
+            <div class="ui huge header">
+                <%= blog.name %>
+            </div>
+            <div class="ui top attached ">
+                <div class="item">
+                    <img class="ui centered rounded image" src="<%= blog.image%>" style="width:100%;">
+                    <div class="content">
+                        <span class="category"><%= blog.created.toDateString() %></span>
+                    </div>
+                    <div class="description">
+                        <p><%= blog.body.substring(0,100)%>....</p>
+                    </div>
+                    <a href="/blogs/<%=blog._id%>">Show More</a>
+                </div>
+            </div>     
+    </div>
+<% } )%>
+</div>
+<%include partials/footer %>
